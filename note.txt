@@ -1,0 +1,26 @@
+
+
+-powershell /Users/cvzy3/workplace/plotly  폴더에서 실행
+
+docker run -it --rm --name dash_test -v ${PWD}:/Users/cvzy3/workplace/plotly -w /Users/cvzy3/workplace/plotly dash_python /bin/bash
+
+docker run -it --rm --name dash_test -p 8080:8080 -v ${PWD}:/Users/cvzy3/workplace/plotly -w /Users/cvzy3/workplace/plotly dash_python python app.py
+
+
+
+import dash 와
+import datashader cvs = ds.Canvas(plot_width=850, plot_height=500) 충돌 발생
+
+from dash import Dash
+app = Dash(__name__) 변경해야할 듯
+
+- 컨테이너 -> 이미지 화
+docker commit CONTAINER IMAGE_NAME
+
+
+hv.output(backend="matplotlib")
+agg = ds.Canvas().points(df,'x','y')
+hd.datashade(points)  +  hd.shade(hv.Image(agg)) + hv.RGB(np.array(tf.shade(agg).to_pil()), bounds=(-10,-10,10,10))
+
+
+tf.shade(agg, cmap='darkblue')[::-1].to_pil() 여러 항목 중 x,y만 가져와서 img

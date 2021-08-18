@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--10,000,000 건은 느리게 오픈됨 client side-->
+<head>
+	<script src="plotly-2.3.1.min.js"></script>
+</head>
+<body>
+    <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <script>
+        function gaussianRand() {
+            var rand = 0;
+            for (var i = 0; i < 6; i += 1) {
+                rand += Math.random();
+            }
+            return (rand / 6)-0.5;
+        }
+
+        var X = [],
+            Y = [],
+            n = 1000000,
+            i;
+
+        for (i = 0; i < n; i += 1) {
+            X.push(gaussianRand());
+            Y.push(gaussianRand());
+        }
+
+        var data = [{
+            type: "scattergl",
+            mode: "markers",
+            marker: {
+                line: {
+                    width: 1,
+                    color: '#404040'}
+            },
+            x: X,
+            y: Y
+        }]
+
+        Plotly.newPlot('myDiv', data)
+    </script>
+</body>
